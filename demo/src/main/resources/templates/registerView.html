@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add user</title>
+    <link th:href="adduser.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="box">
+    <form th:action="@{/registration-process}" method="post">
+
+        <h1>Registration</h1>
+
+        <input type="text"
+               id="inputLogin"
+               placeholder="Podaj login"
+               th:required="required"
+               name="login">
+
+        <input type="password"
+               id="inputPassword"
+               placeholder="Podaj haslo"
+               th:required="required"
+               name="password">
+
+        <input type="text"
+               id="inputName"
+               placeholder="Podaj imie"
+               th:required="required"
+               name="name">
+
+        <input type="text"
+               id="inputSurname"
+               placeholder="Podaj nazwisko"
+               th:required="required"
+               name="surname">
+
+        <input type="submit" value="register" name="">
+    </form>
+</div>
+</body>
+</html>

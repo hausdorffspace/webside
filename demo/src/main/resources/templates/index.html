@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+</head>
+
+<body>
+
+<!--<form action="/users">
+    <button value="przegladaj uzytkownikow">przegladaj urzytkownikow</button>
+</form>
+<form action="/adduser" method="get">
+    <button value="dodaj uzytkownika">dodaj uzytkownika</button>
+</form>-->
+
+<div class="wrapper">
+    <div class="sidebar">
+        <div class="photo_holder">
+            <div id="username">
+
+            </div>
+            this is a place for photo
+        </div>
+        <ul>
+            <form action="/logout" method="post">
+                <input type="submit" value="Log me out">
+            </form>
+            <!--<li>
+                <a th:href="@{/logout}">Logout</a>
+            </li>-->
+            <li>
+                <form action="/viewArticle" method="post">
+                    <button> view</button>
+                </form>
+            </li>
+            <li>
+                <form action="/addArticle" method="get">
+                    <button value="add article">add article</button>
+                </form>
+            </li>
+            <li>
+                <form action="/chat" method="get">
+                    <button value="chat">chat</button>
+                </form>
+            </li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="header">
+            Welcome!! Have a nice day.
+        </div>
+        <div class="info">
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus
+                sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat
+                illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam
+                ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam
+                possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus
+                harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum
+                consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos
+                perferendis eos? Consequuntur!
+            </div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus
+                sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat
+                illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam
+                ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam
+                possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus
+                harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum
+                consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos
+                perferendis eos? Consequuntur!
+            </div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus
+                sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat
+                illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam
+                ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam
+                possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus
+                harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum
+                consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos
+                perferendis eos? Consequuntur!
+            </div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus
+                sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat
+                illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam
+                ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam
+                possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus
+                harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum
+                consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos
+                perferendis eos? Consequuntur!
+            </div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus
+                sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat
+                illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam
+                ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam
+                possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus
+                harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum
+                consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos
+                perferendis eos? Consequuntur!
+            </div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus
+                sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat
+                illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam
+                ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam
+                possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus
+                harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum
+                consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos
+                perferendis eos? Consequuntur!
+            </div>
+
+            <div id="demo">awdaw</div>
+
+
+
+
+
+            <script th:src="get.js" type="text/javascript"></script>
+            <script th:src="getUserName.js" type="text/javascript"></script>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
