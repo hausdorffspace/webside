@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
-@Entity
+@Entity(name = "USER")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -31,6 +31,9 @@ public class User implements Serializable {
     private String password;
 
     private Boolean enabled;
+
+    @OneToMany()
+    private List<Article> articleList;
 
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     @JoinTable(

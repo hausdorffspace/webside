@@ -4,10 +4,10 @@ package com.shop.demo.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.List;
 
 @Builder
-@Entity
+@Entity(name = "ARTICLE")
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Data
@@ -21,8 +21,10 @@ public class Article {
     @Column(length = 1000)
     private String content;
 
-    private Date release;
-
     @ManyToOne(cascade = CascadeType.PERSIST)
     private User user;
+
+    //fetch?????????????????????????????????????????????????????????
+    @OneToMany(mappedBy = "article" ,cascade = CascadeType.ALL)
+    private List<Comment> comments;
 }
