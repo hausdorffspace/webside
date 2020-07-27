@@ -1,6 +1,9 @@
 package com.shop.demo.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,15 +26,17 @@ public class Article implements Serializable {
     @Column(length = 1000)
     private String content;
 
+    //finish
     @ManyToOne(cascade = CascadeType.PERSIST,
             fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private User user;
 
-
+    //finish
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "comments", referencedColumnName = "article_id") 
+    @JoinColumn(name = "comments",
+            referencedColumnName = "article_id")
     private List<Comment> comments;
 }

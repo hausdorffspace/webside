@@ -32,6 +32,7 @@ public class User implements Serializable {
 
     private Boolean enabled;
 
+    //finish
     @OneToMany(mappedBy = "user")
     private List<Article> articleList;
 
