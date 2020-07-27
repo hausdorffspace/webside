@@ -19,7 +19,11 @@ public class Comment implements Serializable {
 
     private String content;
 
-    @ManyToOne
+    //finish
+    @ManyToOne(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(name = "client_id")
     private User user;
 
 }

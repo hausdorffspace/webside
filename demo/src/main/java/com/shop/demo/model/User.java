@@ -36,7 +36,8 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<Article> articleList;
 
-    @OneToMany
+
+    @OneToMany(mappedBy = "user")
     private List<Comment> commentList;
 
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)

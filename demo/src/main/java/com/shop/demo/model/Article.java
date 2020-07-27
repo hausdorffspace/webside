@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -25,6 +26,9 @@ public class Article implements Serializable {
 
     @Column(length = 1000)
     private String content;
+
+    @Temporal(value = TemporalType.TIMESTAMP)
+    private Date date;
 
     //finish
     @ManyToOne(cascade = CascadeType.PERSIST,
