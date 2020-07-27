@@ -12,8 +12,10 @@ import java.util.List;
 @RequiredArgsConstructor
 @Data
 public class Article implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "article_id")
     private Long id;
 
     private String title;
@@ -21,10 +23,15 @@ public class Article implements Serializable {
     @Column(length = 1000)
     private String content;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id")
     private User user;
 
-    //fetch?????????????????????????????????????????????????????????
-    @OneToMany(mappedBy = "article" ,cascade = CascadeType.ALL)
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(name = "comments", referencedColumnName = "article_id") 
     private List<Comment> comments;
 }

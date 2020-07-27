@@ -20,9 +20,6 @@ public class Comment implements Serializable {
     private String content;
 
     @ManyToOne
-    private Article article;
-
-    @ManyToOne
     private User user;
 
 }
