@@ -10,11 +10,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "user_role")
+@Entity(name = "USER_ROLE")
 public class UserRole implements Serializable {
 
     @Id
@@ -29,3 +28,4 @@ public class UserRole implements Serializable {
     private String description;
 
 }
+

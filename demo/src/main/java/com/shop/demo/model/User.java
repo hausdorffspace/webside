@@ -32,8 +32,11 @@ public class User implements Serializable {
 
     private Boolean enabled;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "user")
     private List<Article> articleList;
+
+    @OneToMany
+    private List<Comment> commentList;
 
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     @JoinTable(

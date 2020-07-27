@@ -5,12 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
-@Entity
+@Entity(name = "COMMENT")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comment {
+public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,5 +21,8 @@ public class Comment {
 
     @ManyToOne
     private Article article;
+
+    @ManyToOne
+    private User user;
 
 }
