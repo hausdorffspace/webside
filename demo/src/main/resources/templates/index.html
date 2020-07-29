@@ -113,11 +113,28 @@
                 perferendis eos? Consequuntur!
             </div>
 
-            <div id="demo">awdaw</div>
-
+            <div id="demo">
+                awdaw
+                <button onclick="gettArticleByTitle()" value="console log all article in json format"></button>
+            </div>
 
 
             <script th:src="getUserName.js" type="text/javascript"></script>
+
+            <script>
+                function gettArticleByTitle() {
+                    fetch('http://localhost:8080/allArticleByTitle', {method: 'GET'})
+                        .then(res => res.json())
+                        .then((article) => {
+                            console.log(article);
+                        })
+                        .catch(
+                            err => console.error(err)
+                        );
+
+                }
+            </script>
+
         </div>
     </div>
 </div>
