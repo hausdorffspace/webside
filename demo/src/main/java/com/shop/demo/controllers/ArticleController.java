@@ -65,5 +65,8 @@ public class ArticleController {
     }
 
 
-
+    @RequestMapping(value = "/allArticleByTitle", method = RequestMethod.GET)
+    public @ResponseBody List<Article> getAllArticleByTitle(){
+        return articleService.returnAllArticleByTitle("test");
+    }
 }
