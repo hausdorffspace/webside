@@ -23,7 +23,7 @@ public class Comment implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
 }

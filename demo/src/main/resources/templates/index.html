@@ -127,11 +127,13 @@
                         .then(res => res.json())
                         .then((article) => {
                             console.log(article);
+                            if(Array.isArray(article)){
+                                console.log("empty")
+                            }
                         })
                         .catch(
                             err => console.error(err)
                         );
-
                 }
             </script>
 

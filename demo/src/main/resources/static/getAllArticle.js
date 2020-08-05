@@ -4,8 +4,6 @@ fetch('http://localhost:8080/viewArticle', {method: 'GET'})
 
         var length = Object.keys(article.list).length;
         addElementToList(length, article);
-        /*console.log(article.list[0].id);*/
-        test();
     })
     .catch(
         err => console.error(err)
@@ -21,10 +19,3 @@ function addElementToList(length, data) {
     }
 }
 
-function test() {
-    var demo = document.getElementById('demo')
-    var htmlDivElement = document.createElement('div');
-    htmlDivElement.setAttribute('class', 'class-test')
-    htmlDivElement.innerHTML = '<h1> to jest tekst </h1>'
-    demo.appendChild(htmlDivElement);
-}

@@ -28,12 +28,13 @@ public class Article implements Serializable {
     private String content;
 
     @Temporal(value = TemporalType.TIMESTAMP)
+    @Column(name = "relase_date")
     private Date date;
 
     //finish
     @ManyToOne(cascade = CascadeType.PERSIST,
             fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     //finish
