@@ -31,7 +31,7 @@ public class Article implements Serializable {
     @Column(name = "relase_date")
     private Date date;
 
-    //finish
+
     @ManyToOne(cascade = CascadeType.PERSIST,
             fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
@@ -41,7 +41,7 @@ public class Article implements Serializable {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "comments",
+    @JoinColumn(name = "article_id",
             referencedColumnName = "article_id")
     private List<Comment> comments;
 }

@@ -2,6 +2,7 @@
 2. spring security
 3. wyglad index.html
 4. pogoda z http://api.openweathermap.org
+5. cos nie tak z modelem bazy danych w encjii comment
 
 
 

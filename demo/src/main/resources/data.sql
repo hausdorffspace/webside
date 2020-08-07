@@ -15,3 +15,7 @@ INSERT INTO article(content,relase_date,title) VALUES ('this is a content of thi
 INSERT INTO article(content,relase_date,title) VALUES ('Emilka jest super',
                                                                 '2019-01-10 09:42:31',
                                                                 'pochodne kowariantne');
+
+INSERT INTO article(content,relase_date,title) VALUES ('korepytycje sa super',
+                                                                '2089-04-10 11:11:11',
+                                                                'nauka');
