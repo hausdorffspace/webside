@@ -25,9 +25,11 @@
             this is a place for photo
         </div>
         <ul>
-            <form action="/logout" method="post">
-                <input type="submit" value="Log me out">
-            </form>
+            <li>
+                <form action="/logout" method="post">
+                    <input type="submit" value="Log me out">
+                </form>
+            </li>
             <!--<li>
                 <a th:href="@{/logout}">Logout</a>
             </li>-->
@@ -127,7 +129,7 @@
                         .then(res => res.json())
                         .then((article) => {
                             console.log(article);
-                            if(Array.isArray(article)){
+                            if (Array.isArray(article)) {
                                 console.log("empty")
                             }
                         })
