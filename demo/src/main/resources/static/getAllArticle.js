@@ -2,8 +2,11 @@ fetch('http://localhost:8080/viewArticle', {method: 'GET'})
     .then(res => res.json())
     .then((article) => {
 
-        var length = Object.keys(article.list).length;/*
-        addElementToList(length, article);*/
+        console.log(article.list[2].relase);
+        console.log(article.list[1].relase);
+        console.log(article.list[3].relase);
+
+        var length = Object.keys(article.list).length;
         addDiv(length,article);
     })
     .catch(
@@ -17,7 +20,12 @@ function addDiv(lenght, data) {
 
         var divName = document.createElement('div');
         divName.setAttribute('class','div-name');
-        divName.appendChild(document.createTextNode(data.list[i].name));
+        if (data.list[i].name == null){
+            divName.appendChild(document.createTextNode('domyslny uzytkownik'));
+        }else {
+            divName.appendChild(document.createTextNode(data.list[i].name));
+        }
+
 
         var divData = document.createElement('div');
         divData.setAttribute('class','div-data');
