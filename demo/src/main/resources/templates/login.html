@@ -7,51 +7,53 @@
     <!--href="login.css" to dla springa, "/static/login.css" to dla bracket -->
 </head>
 <body>
-<div class="container">
-    Eugenika (stgr. εὐγενής, eugenes, ’dobrze urodzony’) – pojęcie wprowadzone w 1869 przez Francisa Galtona[1],
-    kuzyna Karola Darwina, które dotyczyło selektywnego rozmnażania zwierząt oraz ludzi, aby ulepszać gatunki z
-    pokolenia na pokolenie, szczególnie jeśli chodzi o cechy dziedziczone. W ciągu następnych lat Galton poprawił
-    swoją definicję, aby uwzględnić specyfikę eugeniki pozytywnej, zachęcającej do częstszego reprodukowania się
-    najlepszych
-    osobników oraz eugeniki negatywnej, zniechęcającej do reprodukcji osobników mniej wartościowych[2][3].
+<canvas id="playground">
 
-    Współcześnie jest to system poglądów zakładający możliwość doskonalenia cech dziedzicznych
-</div>
+    <div class="container">
+        Eugenika (stgr. εὐγενής, eugenes, ’dobrze urodzony’) – pojęcie wprowadzone w 1869 przez Francisa Galtona[1],
+        kuzyna Karola Darwina, które dotyczyło selektywnego rozmnażania zwierząt oraz ludzi, aby ulepszać gatunki z
+        pokolenia na pokolenie, szczególnie jeśli chodzi o cechy dziedziczone. W ciągu następnych lat Galton poprawił
+        swoją definicję, aby uwzględnić specyfikę eugeniki pozytywnej, zachęcającej do częstszego reprodukowania się
+        najlepszych
+        osobników oraz eugeniki negatywnej, zniechęcającej do reprodukcji osobników mniej wartościowych[2][3].
 
-<div class="box">
+        Współcześnie jest to system poglądów zakładający możliwość doskonalenia cech dziedzicznych
+    </div>
 
-    <form th:action="@{/login-process}" method="post">
-        <h1>Login</h1>
+    <div class="box">
 
-        <input type="text"
-               id="inputLogin"
-               placeholder="Podaj login"
-               th:required="required"
-               name="username">
+        <form th:action="@{/login-process}" method="post">
+            <h1>Login</h1>
 
-        <input type="password"
-               id="inputPassword"
-               placeholder="Podaj haslo"
-               th:required="required"
-               name="password">
+            <input type="text"
+                   id="inputLogin"
+                   placeholder="Podaj login"
+                   th:required="required"
+                   name="username">
 
-        <input type="submit" value="login" name="">
+            <input type="password"
+                   id="inputPassword"
+                   placeholder="Podaj haslo"
+                   th:required="required"
+                   name="password">
 
-        <br>
-        <h4>If you not registred</h4>
+            <input type="submit" value="login" name="">
 
-    </form>
+            <br>
+            <h4>If you not registred</h4>
 
-    <form th:action="@{/adduser}" method="post">
-        <button class="button" style="vertical-align:middle" value="registred">
+        </form>
+
+        <form th:action="@{/adduser}" method="post">
+            <button class="button" style="vertical-align:middle" value="registred">
         <span>
             registred
         </span>
-        </button>
-    </form>
+            </button>
+        </form>
 
-</div>
-
-
+    </div>
+</canvas>
+<script th:src="backgroundTest.js" type="text/javascript"></script>
 </body>
 </html>
