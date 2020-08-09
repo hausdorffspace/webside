@@ -13,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "USER_ROLE")
-public class UserRole implements Serializable {
+@Entity(name = "ROLE")
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

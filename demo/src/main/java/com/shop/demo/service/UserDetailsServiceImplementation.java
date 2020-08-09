@@ -1,7 +1,7 @@
 package com.shop.demo.service;
 
 import com.shop.demo.model.User;
-import com.shop.demo.model.UserRole;
+import com.shop.demo.model.Role;
 import com.shop.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -38,7 +38,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
         }
     }
 
-    private Set<GrantedAuthority> convertAuthorities(Set<UserRole> roles) {
+    private Set<GrantedAuthority> convertAuthorities(Set<Role> roles) {
         Set<GrantedAuthority> authorities = new HashSet<>();
         roles.stream().forEach(r -> authorities.add(new SimpleGrantedAuthority(r.getRole())));
         return authorities;
