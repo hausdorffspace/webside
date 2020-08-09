@@ -3,7 +3,7 @@ package com.shop.demo.service;
 import com.shop.demo.model.User;
 import com.shop.demo.model.Role;
 import com.shop.demo.repository.UserRepository;
-import com.shop.demo.repository.UserRoleRepository;
+import com.shop.demo.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,20 +19,20 @@ public class UserService {
 
     private UserRepository userRepository;
 
-    private UserRoleRepository userRoleRepository;
+    private RoleRepository roleRepository;
 
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository, UserRoleRepository userRoleRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.userRoleRepository = userRoleRepository;
+        this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
     public void saveUser(User user) {
         Set<Role> defaultRole = new HashSet<>();
-        defaultRole.add(userRoleRepository.findByRole(DEFAULT_ROLE));
+        defaultRole.add(roleRepository.findByRole(DEFAULT_ROLE));
         user.setRoles(defaultRole);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);

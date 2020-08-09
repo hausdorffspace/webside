@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -18,14 +19,17 @@ public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_role_id")
+    @Column(name = "role_id")
     private Long id;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "description")
     private String description;
+
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users;
 
 }
 

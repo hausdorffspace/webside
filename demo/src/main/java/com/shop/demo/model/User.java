@@ -20,7 +20,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Integer id;
+    private Long id;
 
     private String name;
 
@@ -29,6 +29,9 @@ public class User implements Serializable {
     private String login;
 
     private String password;
+
+    @Transient
+    private String passwordConfirm;
 
     private Boolean enabled;
 
@@ -42,9 +45,9 @@ public class User implements Serializable {
 
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     @JoinTable(
-            name = "user_userRole",
+            name = "user_Role",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name ="user_role_id")
+            inverseJoinColumns = @JoinColumn(name ="role_id")
     )
     private Set<Role> roles;
 
