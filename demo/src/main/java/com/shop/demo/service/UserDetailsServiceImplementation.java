@@ -29,21 +29,36 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        User user = userRepository.findByLogin(login);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        } else {
+        Optional<User> userOptional = userRepository.findByLogin(login);
+
+        if (userOptional.isPresent()) {
+            User user = userOptional.get();
+
             return new org.springframework.security.core.userdetails.User(
                     user.getLogin(),
                     user.getPassword(),
                     convertAuthorities(user.getRoles())
             );
+        } else {
+            throw new UsernameNotFoundException("User not found");
+
         }
+
+       /* User user = userRepository.findByLogin(login);
+
+        if(user == null){
+            throw new UsernameNotFoundException("User not found");
+        } else {
+            return new org.springframework.security.core.userdetails.User(
+                    user.getLogin(),
+                    user.getPassword(),
+                    convertAuthorities(user.getRoles()));
+        }*/
     }
 
     private Set<GrantedAuthority> convertAuthorities(Set<Role> roles) {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        roles.stream().forEach(r -> authorities.add(new SimpleGrantedAuthority(r.getName())));
+        roles.stream().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
         return authorities;
     }
 }

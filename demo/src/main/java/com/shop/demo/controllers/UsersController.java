@@ -12,8 +12,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class UsersController {
 
+
     @Autowired
     private UserService userService;
+
+    /*@Autowired
+    public UsersController(UserService userService) {
+        this.userService = userService;
+    }*/
 
     @GetMapping(value = "/users")
     public ModelAndView getUsersView(){

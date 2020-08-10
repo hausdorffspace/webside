@@ -33,6 +33,10 @@ public class User implements Serializable {
     @Transient
     private String passwordConfirm;
 
+    @Lob
+    @Column(name = "photo", columnDefinition = "BLOB")
+    private Byte[] photo;
+
     private Boolean enabled;
 
     //finish
@@ -50,5 +54,4 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name ="role_id")
     )
     private Set<Role> roles;
-
 }
