@@ -5,7 +5,6 @@ import com.shop.demo.model.Role;
 import com.shop.demo.repository.UserRepository;
 import com.shop.demo.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +32,7 @@ public class UserService {
 
     public void saveUser(User user) {
         Set<Role> defaultRole = new HashSet<>();
-        defaultRole.add(roleRepository.findByRole(DEFAULT_ROLE));
+        defaultRole.add(roleRepository.findByName(DEFAULT_ROLE));
         user.setRoles(defaultRole);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);

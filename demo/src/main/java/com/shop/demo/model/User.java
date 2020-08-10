@@ -33,9 +33,10 @@ public class User implements Serializable {
     @Transient
     private String passwordConfirm;
 
-    @Lob
+    //TODO this is a prototype
+    /*@Lob
     @Column(name = "photo", columnDefinition = "BLOB")
-    private Byte[] photo;
+    private Byte[] photo;*/
 
     private Boolean enabled;
 
