@@ -37,7 +37,6 @@ public class Article implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    //finish
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )

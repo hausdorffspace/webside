@@ -21,7 +21,6 @@ public class Comment implements Serializable {
 
     private String content;
 
-    //finish
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )

@@ -28,8 +28,8 @@ public class Role implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    /*@ManyToMany(mappedBy = "roles")
+    private Set<User> users;*/
 
 }
 

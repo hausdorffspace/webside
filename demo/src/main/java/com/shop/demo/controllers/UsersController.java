@@ -42,9 +42,12 @@ public class UsersController {
                 .surname(surname)
                 .login(login)
                 .password(password)
+                .enabled(true)
                 .build();
 
         userService.saveUser(newUser);
         return "login";
     }
+
+
 }

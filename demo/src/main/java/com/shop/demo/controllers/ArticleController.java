@@ -31,7 +31,7 @@ public class ArticleController {
     public String addArticle(@RequestParam(name = "title") String title,
                              @RequestParam(name = "content") String content,
                              @RequestParam(name = "relase") String relase
-                             ) {
+    ) {
 
         String name = SecurityContextHolder.getContext().getAuthentication().getName();
         System.out.println(name);
@@ -39,6 +39,9 @@ public class ArticleController {
 
         try {
             Date date = simpleDateFormat.parse(relase);
+            System.out.println("date:   " + date);
+            System.out.println("date.toString():      " + date.toString());
+
             articleService.saveArticle(Article.builder()
                     .title(title)
                     .content(content)
@@ -50,23 +53,25 @@ public class ArticleController {
         return "index";
     }
 
-    
+
     //dziala
     @RequestMapping(value = "/viewArticle", method = RequestMethod.GET)
-    public @ResponseBody BoxForArticle returnListOfAllArticle(){
+    public @ResponseBody
+    BoxForArticle returnListOfAllArticle() {
         List<Article> articles = articleService.returnAllArticle();
-        BoxForArticle boxForArticle = new BoxForArticle(articles,"to jest przyklad");
+        BoxForArticle boxForArticle = new BoxForArticle(articles, "to jest przyklad");
         return boxForArticle;
     }
 
     @PostMapping(value = "/viewArticle")
-    public String viewArticle(){
+    public String viewArticle() {
         return "viewArticle";
     }
 
 
     @RequestMapping(value = "/allArticleByTitle", method = RequestMethod.GET)
-    public @ResponseBody List<Article> getAllArticleByTitle(){
+    public @ResponseBody
+    List<Article> getAllArticleByTitle() {
         return articleService.returnAllArticleByTitle("test");
     }
 }
