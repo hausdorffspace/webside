@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>login</title>
     
-    <link rel="stylesheet" href="/static/login.css" type="text/css"/>
+    <link rel="stylesheet" th:href="login.css" type="text/css"/>
     <!--th:href="login.css" to dla springa, "/static/login.css" to dla bracket bez templates TH: -->
 </head>
 
@@ -12,13 +12,10 @@
 
 <body>
 
-<div id="canvas-wrap">
-  
-   <canvas id="canvas-wrap">
-       
-   </canvas>
-   
-   <div id="overlay">
+
+        <canvas id="playground">
+            
+        </canvas>
       
        <div class="container">
         Eugenika (stgr. εὐγενής, eugenes, ’dobrze urodzony’) – pojęcie wprowadzone w 1869 przez Francisa Galtona[1],
@@ -61,14 +58,12 @@
                 registred
             </span>
                 </button>
-            </form>
+            </form>    
     
         </div>
-       </div>
     
-</div>
 
-    
+    <!--     th:src="backroundTest.js"      for intellij-->
 <script th:src="backgroundTest.js" type="text/javascript"></script>
 </body>
 </html>
