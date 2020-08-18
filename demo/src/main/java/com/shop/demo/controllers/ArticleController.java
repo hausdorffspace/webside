@@ -45,6 +45,7 @@ public class ArticleController {
 
         try {
             Date date = simpleDateFormat.parse(relase);
+
             System.out.println("date:   " + date);
             System.out.println("date.toString():      " + date.toString());
 
@@ -81,9 +82,25 @@ public class ArticleController {
         return articleService.returnAllArticleByTitle("test");
     }
 
+
+    //TODO get atributes from form, update the article, send the id article
     @PostMapping(value = "/createComment")
     public String createComment(){
-        commentService.createComment(Comment.builder().content("this is a superb article!!!").user(userRepository.findByLogin("test").get()).build());
+        Comment comment = Comment.builder()
+                .content("this is a superb article!!!")
+                .user(userRepository.findByLogin("test").get())
+                .build();
+        commentService.createComment(comment);
+
+
+        Long id = new Long(1L);
+        Article retrivedArticle = articleService.getArticleById(id);
+
+        //correct, this could be better, CLEAN CODE
+        List<Comment> comments = new ArrayList<>();
+        comments.add(comment);
+        retrivedArticle.setComments(comments);
+
         return "viewArticle";
     }
 }

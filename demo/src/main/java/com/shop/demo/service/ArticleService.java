@@ -2,6 +2,7 @@ package com.shop.demo.service;
 
 
 import com.shop.demo.model.Article;
+import com.shop.demo.model.Comment;
 import com.shop.demo.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,11 @@ public class ArticleService {
     }
 
 
+    public Article getArticleById(Long id) {
+        return articleRepository.getArticleById(id);
+    }
+
+    public void updateCommentById(Long id, Comment comment){
+        articleRepository.updateCommentById(id, comment);
+    }
 }
