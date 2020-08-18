@@ -58,12 +58,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsServiceImplementation)
                 .passwordEncoder(passwordEncoder);
 
-        /*
-        auth.inMemoryAuthentication()
-                .withUser("user")
+        /*auth.inMemoryAuthentication()
+                .withUser("test")
                 .password(passwordEncoder.encode("test"))
-                .roles("USERS");
-*/
+                .roles("USERS");*/
         /*auth.jdbcAuthentication()
                 .usersByUsernameQuery("SELECT login, password,enabled " +
                         "FROM user " +

@@ -43,13 +43,26 @@ function addDiv(lenght, data) {
         divTitle.setAttribute('class', 'div-title');
         divTitle.appendChild(document.createTextNode(data.list[i].title));
 
+
+        var divComment = document.createElement('div');
+        divComment.setAttribute('class','div-comment');
+        var form = document.createElement('form');  //form
+        form.setAttribute('action','/createComment');
+        form.setAttribute('method','post');
+        var button = document.createElement('button');
+        button.setAttribute('value', 'add comment');
+        button.appendChild(document.createTextNode('add comment'));
+        form.appendChild(button);
+        divComment.appendChild(form);
+
         var articleElement = document.createElement('div');
-        articleElement.setAttribute('class', 'div-element');
+        articleElement.setAttribute('class', 'div-article');
 
         articleElement.appendChild(divName);
         articleElement.appendChild(divData);
         articleElement.appendChild(divTitle);
         articleElement.appendChild(divContent);
+        articleElement.appendChild(divComment);
 
         div.appendChild(articleElement);
     }

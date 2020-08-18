@@ -1,4 +1,4 @@
-package com.shop.demo.utils;
+package com.shop.demo.model.dto;
 
 import com.shop.demo.model.Article;
 

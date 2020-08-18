@@ -1,9 +1,12 @@
 package com.shop.demo.controllers;
 
 import com.shop.demo.model.Article;
+import com.shop.demo.model.Comment;
+import com.shop.demo.repository.CommentRepository;
 import com.shop.demo.repository.UserRepository;
 import com.shop.demo.service.ArticleService;
-import com.shop.demo.utils.BoxForArticle;
+import com.shop.demo.model.dto.BoxForArticle;
+import com.shop.demo.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,6 +24,9 @@ public class ArticleController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    CommentService commentService;
 
     @GetMapping("/addArticle")
     public String addArticle() {
@@ -73,5 +79,11 @@ public class ArticleController {
     public @ResponseBody
     List<Article> getAllArticleByTitle() {
         return articleService.returnAllArticleByTitle("test");
+    }
+
+    @PostMapping(value = "/createComment")
+    public String createComment(){
+        commentService.createComment(Comment.builder().content("this is a superb article!!!").user(userRepository.findByLogin("test").get()).build());
+        return "viewArticle";
     }
 }
