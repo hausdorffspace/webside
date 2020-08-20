@@ -21,6 +21,7 @@ public class ArticleService {
 
     public void saveArticle(Article article){
         articleRepository.save(article);
+
     }
 
     public List<Article> returnAllArticle(){
@@ -36,7 +37,7 @@ public class ArticleService {
         return articleRepository.getArticleById(id);
     }
 
-    public void updateCommentById(Long id, Comment comment){
-        articleRepository.updateCommentById(id, comment);
-    }
+    /*public void updateCommentById(Long id, Article article){
+        articleRepository.updateArticleByIdWithNewComment(id, article);
+    }*/
 }

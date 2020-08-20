@@ -101,6 +101,8 @@ public class ArticleController {
         comments.add(comment);
         retrivedArticle.setComments(comments);
 
+/*        articleService.updateCommentById(id,retrivedArticle);*/
+
         return "viewArticle";
     }
 }

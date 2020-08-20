@@ -27,4 +27,8 @@ public class Comment implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
+    /*@ManyToOne
+    @JoinColumn(name = )
+    private Article article;*/
+
 }
