@@ -1,5 +1,6 @@
 package com.shop.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -38,9 +39,11 @@ public class Article implements Serializable {
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.EAGER,
+            mappedBy = "article"
     )
-    @JoinColumn(name = "article_id",
-            referencedColumnName = "article_id")
+    /*@JoinColumn(name = "article_id",
+            referencedColumnName = "article_id")*/
+    @JsonIgnore
     private List<Comment> comments;
 }

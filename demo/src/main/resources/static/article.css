@@ -1,41 +1,42 @@
-.div-element{
-    position: relative;
-    width: 70%;
-    margin-top: 50px;
-    margin-left: 50px;
-    border-style: groove;
+.article-container {
+    display: flex;
+    flex-direction: column;
 }
 
-.div-name{
-    position: absolute;
+.div-article {
+    background-color: #3498db;
+    width: 95%;
+    height: auto;
+}
+
+.div-name {
     height: 20px;
-    right: 50px;
     float: left;
     background-color: #2ecc71;
 }
 
-.div-data{
-    float: left;
+.div-data {
     width: 100px;
     height: 20px;
-    margin-right: 5px;
-    margin-top: 10px;
     background-color: brown;
+    float: left;
+    transform: translateX(100px);
 }
 
-.div-title{
-    position: absolute;
+.div-title {
     clear: both;
-    margin-left: 20%;
-    margin-right: 20%;
 }
 
-.div-content{
-    margin-top: 50px;
+.div-content {
+    width: 95%;
+    height: auto;
 }
 
-.div-article{
-    background-color: #3498db;
-    height: 20px;
-    width: 50px;
+.div-comment {
+    
+}
+
+input{
+    width: 100px;
+    height: 30px;
 }

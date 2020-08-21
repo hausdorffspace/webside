@@ -130,7 +130,7 @@
                         .then((article) => {
                             console.log(article);
                             if (Array.isArray(article)) {
-                                console.log("empty")
+                                console.error("empty array")
                             }
                         })
                         .catch(

@@ -1,9 +1,8 @@
 package com.shop.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -40,10 +39,12 @@ public class User implements Serializable {
 
     private Boolean enabled;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Article> articleList;
 
-
+    //loop?
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Comment> commentList;
 
@@ -54,4 +55,6 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name ="role_id")
     )
     private Set<Role> roles;
+
+
 }

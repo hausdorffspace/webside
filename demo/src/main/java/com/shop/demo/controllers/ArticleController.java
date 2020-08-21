@@ -7,11 +7,13 @@ import com.shop.demo.repository.UserRepository;
 import com.shop.demo.service.ArticleService;
 import com.shop.demo.model.dto.BoxForArticle;
 import com.shop.demo.service.CommentService;
+import com.shop.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -23,7 +25,7 @@ public class ArticleController {
     ArticleService articleService;
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
 
     @Autowired
     CommentService commentService;
@@ -60,8 +62,6 @@ public class ArticleController {
         return "index";
     }
 
-
-    //dziala
     @RequestMapping(value = "/viewArticle", method = RequestMethod.GET)
     public @ResponseBody
     BoxForArticle returnListOfAllArticle() {
@@ -85,24 +85,9 @@ public class ArticleController {
 
     //TODO get atributes from form, update the article, send the id article
     @PostMapping(value = "/createComment")
-    public String createComment(){
-        Comment comment = Comment.builder()
-                .content("this is a superb article!!!")
-                .user(userRepository.findByLogin("test").get())
-                .build();
-        commentService.createComment(comment);
-
-
-        Long id = new Long(1L);
-        Article retrivedArticle = articleService.getArticleById(id);
-
-        //correct, this could be better, CLEAN CODE
-        List<Comment> comments = new ArrayList<>();
-        comments.add(comment);
-        retrivedArticle.setComments(comments);
-
-/*        articleService.updateCommentById(id,retrivedArticle);*/
-
+    public String createComment(@RequestParam(name = "comment-body") String commentBody, Principal principal /* get username*/ ){
+        commentService.createComment(commentBody, principal);
         return "viewArticle";
     }
+
 }

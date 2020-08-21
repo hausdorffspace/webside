@@ -2,7 +2,6 @@ package com.shop.demo.repository;
 
 import com.shop.demo.model.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -17,8 +16,4 @@ public interface ArticleRepository extends JpaRepository<Article,Long> {
 
     @Query("SELECT a FROM ARTICLE a WHERE a.id=:id")
     Article getArticleById(@Param("id") Long id);
-
-    /*@Modifying
-    @Query("UPDATE ARTICLE a SET a.article=:article WHERE a.id=:id")
-    void updateArticleByIdWithNewComment(@Param("id") Long id, @Param("article") Article article);*/
 }

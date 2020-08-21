@@ -1,17 +1,15 @@
 package com.shop.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity(name = "COMMENT")
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 @Builder
 public class Comment implements Serializable {
 
@@ -21,14 +19,15 @@ public class Comment implements Serializable {
 
     private String content;
 
+    //loop ??
     @ManyToOne(fetch = FetchType.EAGER,
             cascade = CascadeType.ALL
     )
     @JoinColumn(name = "user_id")
     private User user;
 
-    /*@ManyToOne
-    @JoinColumn(name = )
-    private Article article;*/
+    @ManyToOne
+    @JoinColumn(name = "article_id")
+    private Article article;
 
 }
