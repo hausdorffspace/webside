@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.List;
 
 @Service
 public class CommentService {
@@ -32,4 +33,7 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
+    public List<Comment> getAllComment(Long id){
+        return commentRepository.getAllCommentByArticleId(id);
+    }
 }

@@ -13,6 +13,11 @@ fetch('http://localhost:8080/viewArticle', {method: 'GET'})
         err => console.error(err)
     );
 
+/*var allComents = function getAllComent(){
+    fetch('http://localhost:8080/getAllComments', {method: 'GET'})
+        .then(res => res.json())
+        .then((comments) => )
+}*/
 
 function addDiv(lenght, data) {
     var div = document.getElementById('article-container')
@@ -21,12 +26,13 @@ function addDiv(lenght, data) {
         var divName = document.createElement('div');
         divName.setAttribute('class', 'div-name');
         if (data.list[i].name == null) {
-            divName.appendChild(document.createTextNode('domyslny uzytkownik'));
+            divName.appendChild(document.createTextNode('Annonymous'));
         } else {
             divName.appendChild(document.createTextNode(data.list[i].name));
         }
 
 
+        //TODO date ?????????? if(true)????
         var divData = document.createElement('div');
         divData.setAttribute('class', 'div-data');
         if (true) {
@@ -58,7 +64,12 @@ function addDiv(lenght, data) {
         form.appendChild(input);
         form.appendChild(button);
         var divContainerForComments = document.createElement('div');
-        divContainerForComments.setAttribute('class','div-container-for-comments')
+        divContainerForComments.setAttribute('class','div-container-for-comments');
+        /*for (let j = 0; j < ; j++) {
+
+        }*/
+        var listOdComment = document.createElement('div');
+        divContainerForComments.appendChild(listOdComment);
         divComment.appendChild(form);
 
         var articleElement = document.createElement('div');
@@ -72,16 +83,16 @@ function addDiv(lenght, data) {
 
         div.appendChild(articleElement);
     }
+}
 
-    //TODO
-    function createComment() {
+//TODO
+function createComment() {
 
-    }
+}
 
 
-    //TODO
-    function displayAllComment() {
+//TODO
+function displayAllComment() {
 
-    }
 }
 

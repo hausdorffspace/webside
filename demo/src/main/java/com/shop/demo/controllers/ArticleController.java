@@ -40,34 +40,14 @@ public class ArticleController {
                              @RequestParam(name = "content") String content,
                              @RequestParam(name = "relase") String relase
     ) {
-
-        String name = SecurityContextHolder.getContext().getAuthentication().getName();
-        System.out.println(name);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy");
-
-        try {
-            Date date = simpleDateFormat.parse(relase);
-
-            System.out.println("date:   " + date);
-            System.out.println("date.toString():      " + date.toString());
-
-            articleService.saveArticle(Article.builder()
-                    .title(title)
-                    .content(content)
-                    .build());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+        articleService.saveArticle(content,title,relase);
         return "index";
     }
 
-    @RequestMapping(value = "/viewArticle", method = RequestMethod.GET)
+    @GetMapping(value = "/viewArticle")
     public @ResponseBody
     BoxForArticle returnListOfAllArticle() {
-        List<Article> articles = articleService.returnAllArticle();
-        BoxForArticle boxForArticle = new BoxForArticle(articles, "to jest przyklad");
-        return boxForArticle;
+        return new BoxForArticle(articleService.returnAllArticle(), "to jest przyklad");
     }
 
     @PostMapping(value = "/viewArticle")
@@ -75,19 +55,22 @@ public class ArticleController {
         return "viewArticle";
     }
 
-
-    @RequestMapping(value = "/allArticleByTitle", method = RequestMethod.GET)
+    @GetMapping(value = "/allArticleByTitle")
     public @ResponseBody
     List<Article> getAllArticleByTitle() {
         return articleService.returnAllArticleByTitle("test");
     }
 
-
-    //TODO get atributes from form, update the article, send the id article
+    //TODO get atributes from form, send the id article
+    //TODO rebuild Principal for securityContextHolder, change signature of method
     @PostMapping(value = "/createComment")
     public String createComment(@RequestParam(name = "comment-body") String commentBody, Principal principal /* get username*/ ){
         commentService.createComment(commentBody, principal);
         return "viewArticle";
     }
 
+    @GetMapping(value = "/getAllComments")
+    public List<Comment> getCommentsByArticleId(Long id){
+        return commentService.getAllComment(id);
+    }
 }
