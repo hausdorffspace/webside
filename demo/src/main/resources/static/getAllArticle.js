@@ -53,7 +53,11 @@ function addDiv(lenght, data) {
         var divComment = document.createElement('div');
         divComment.setAttribute('class','div-comment');
         var form = document.createElement('form');  //form
-        var input = document.createElement('input')
+        var input = document.createElement('input');
+        var inputIdArticle = document.createElement('input');
+        inputIdArticle.setAttribute('type','hidden');
+        inputIdArticle.setAttribute('name','articleId');
+        inputIdArticle.setAttribute('value',i.toString());
         input.setAttribute('type','text');
         input.setAttribute('name','comment-body');
         form.setAttribute('action','/createComment');
@@ -61,6 +65,7 @@ function addDiv(lenght, data) {
         var button = document.createElement('button');
         button.setAttribute('value', 'add comment');
         button.appendChild(document.createTextNode('add comment'));
+        form.appendChild(inputIdArticle);
         form.appendChild(input);
         form.appendChild(button);
         var divContainerForComments = document.createElement('div');

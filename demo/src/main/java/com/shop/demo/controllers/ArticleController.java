@@ -64,8 +64,8 @@ public class ArticleController {
     //TODO get atributes from form, send the id article
     //TODO rebuild Principal for securityContextHolder, change signature of method
     @PostMapping(value = "/createComment")
-    public String createComment(@RequestParam(name = "comment-body") String commentBody, Principal principal /* get username*/ ){
-        commentService.createComment(commentBody, principal);
+    public String createComment(@RequestParam(name = "comment-body") String commentBody,@RequestParam(name = "articleId") String articleId ,Principal principal /* get username*/ ){
+        commentService.createComment(commentBody, articleId, principal);
         return "viewArticle";
     }
 

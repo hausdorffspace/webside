@@ -24,10 +24,10 @@ public class CommentService {
         this.userService = userService;
     }
 
-    public void createComment(String commentBody, Principal principal){
+    public void createComment(String commentBody,String articleId ,Principal principal){
         Comment comment = Comment.builder()
                 .content(commentBody)
-                .article(articleService.getArticleById(1L)) /*TODO*/
+                .article(articleService.getArticleById(Long.decode(articleId))) /*TODO*/
                 .user(userService.getUserByLogin(principal.getName()))
                 .build();
         commentRepository.save(comment);
