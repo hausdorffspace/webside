@@ -3,9 +3,9 @@ package com.shop.demo.service;
 import com.shop.demo.model.Comment;
 import com.shop.demo.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import java.security.Principal;
 import java.util.List;
 
 @Service
@@ -24,11 +24,11 @@ public class CommentService {
         this.userService = userService;
     }
 
-    public void createComment(String commentBody,String articleId ,Principal principal){
+    public void createComment(String commentBody,String articleId){
         Comment comment = Comment.builder()
                 .content(commentBody)
-                .article(articleService.getArticleById(Long.decode(articleId))) /*TODO*/
-                .user(userService.getUserByLogin(principal.getName()))
+                .article(articleService.getArticleById(Long.decode(articleId)+1L))
+                .user(userService.getUserByLogin(SecurityContextHolder.getContext().getAuthentication().getName()))
                 .build();
         commentRepository.save(comment);
     }

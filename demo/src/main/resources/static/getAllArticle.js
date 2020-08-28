@@ -1,23 +1,13 @@
 fetch('http://localhost:8080/viewArticle', {method: 'GET'})
     .then(res => res.json())
-    .then((article) => {
-
+    .then(article => {
         console.log(article.list[2].relase);
         console.log(article.list[1].relase);
-        console.log(article.list[3].relase);
-
-        var length = Object.keys(article.list).length;
-        addDiv(length, article);
+        addDiv(Object.keys(article.list).length, article);
     })
     .catch(
         err => console.error(err)
     );
-
-/*var allComents = function getAllComent(){
-    fetch('http://localhost:8080/getAllComments', {method: 'GET'})
-        .then(res => res.json())
-        .then((comments) => )
-}*/
 
 function addDiv(lenght, data) {
     var div = document.getElementById('article-container')
@@ -51,31 +41,39 @@ function addDiv(lenght, data) {
 
 
         var divComment = document.createElement('div');
-        divComment.setAttribute('class','div-comment');
+        divComment.setAttribute('class', 'div-comment');
         var form = document.createElement('form');  //form
-        var input = document.createElement('input');
+        var textArea = document.createElement('textarea');
         var inputIdArticle = document.createElement('input');
-        inputIdArticle.setAttribute('type','hidden');
-        inputIdArticle.setAttribute('name','articleId');
-        inputIdArticle.setAttribute('value',i.toString());
-        input.setAttribute('type','text');
-        input.setAttribute('name','comment-body');
-        form.setAttribute('action','/createComment');
-        form.setAttribute('method','post');
+        inputIdArticle.setAttribute('type', 'hidden');
+        inputIdArticle.setAttribute('name', 'articleId');
+        inputIdArticle.setAttribute('value', i.toString());
+        textArea.setAttribute('name', 'comment-body');
+        form.setAttribute('action', '/createComment');
+        form.setAttribute('method', 'post');
         var button = document.createElement('button');
         button.setAttribute('value', 'add comment');
         button.appendChild(document.createTextNode('add comment'));
         form.appendChild(inputIdArticle);
-        form.appendChild(input);
+        form.appendChild(textArea);
         form.appendChild(button);
-        var divContainerForComments = document.createElement('div');
-        divContainerForComments.setAttribute('class','div-container-for-comments');
-        /*for (let j = 0; j < ; j++) {
-
-        }*/
-        var listOdComment = document.createElement('div');
-        divContainerForComments.appendChild(listOdComment);
         divComment.appendChild(form);
+        var divContainerForComments = document.createElement('div');
+        divContainerForComments.setAttribute('class', 'div-container-for-comments');
+
+
+        //TODO  something gone wrong, don't know what.
+        var containerForComment;
+        fetch('http://localhost:8080/getAllComments?id='.concat((i+1).toString()), {method: 'GET'})
+            .then(response => response.json())
+            .then(comment => {
+                console.log(comment);
+                containerForComment = comment;
+            })
+            .catch(
+                err => console.error(err)
+            );
+        console.log(containerForComment);
 
         var articleElement = document.createElement('div');
         articleElement.setAttribute('class', 'div-article');
@@ -88,6 +86,10 @@ function addDiv(lenght, data) {
 
         div.appendChild(articleElement);
     }
+}
+
+function listAllComment() {
+
 }
 
 //TODO

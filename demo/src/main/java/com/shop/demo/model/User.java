@@ -14,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ToString(exclude = "password")
 public class User implements Serializable {
 
     @Id
@@ -43,7 +44,6 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<Article> articleList;
 
-    //loop?
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Comment> commentList;

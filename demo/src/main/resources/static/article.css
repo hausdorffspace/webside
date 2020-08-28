@@ -4,14 +4,21 @@
 }
 
 .div-article {
-    background-color: #3498db;
+    border-style: solid;
+    border-radius: 5px;
+    border-collapse: collapse;
     width: 95%;
     height: auto;
+    transition: 1s;
+}
+
+.div-article:hover{
+    font-weight: bold;
 }
 
 .div-name {
     height: 20px;
-    float: left;
+    width: 100px;
     background-color: #2ecc71;
 }
 
@@ -19,12 +26,10 @@
     width: 100px;
     height: 20px;
     background-color: brown;
-    float: left;
-    transform: translateX(100px);
 }
 
 .div-title {
-    clear: both;
+    transform: translateX(45%);
 }
 
 .div-content {
@@ -36,7 +41,12 @@
     
 }
 
-input{
-    width: 100px;
-    height: 30px;
+textarea{
+    width: 80px;
+    height: 70px;
+    transition: 0.5s;
+}
+
+textarea:hover{
+    height: 100px;
 }

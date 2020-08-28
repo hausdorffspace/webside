@@ -100,10 +100,28 @@ body{
     margin-bottom: 20px;
 }
 
-.photo_holder{
+#photo_holder{
     height: 200px;
 }
 
+.wrapper .sidebar button{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none !important;
+    transition: 0.5s;
+}
+
+.wrapper .sidebar button:hover{
+    background: #bdb8d7;
+}
+
+.wrapper .sidebar input[type = "submit"]{
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: none;
+}
 
 
 

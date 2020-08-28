@@ -1,6 +1,5 @@
 package com.shop.demo.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,5 +28,6 @@ public class Comment implements Serializable {
     @ManyToOne
     @JoinColumn(name = "article_id")
     private Article article;
+
 
 }

@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <title>all article</title>
     <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
-    <link rel="stylesheet" type="text/css" th:href="@{/info.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/article.css}">
 </head>
 <body>
@@ -29,6 +28,11 @@
                 <a th:href="@{/logout}">Logout</a>
             </li>-->
             <li>
+                <form action="/getIndex" method="get">
+                    <button>home</button>
+                </form>
+            </li>
+            <li>
                 <form action="/viewArticle" method="get">
                     <button> view</button>
                 </form>
@@ -48,24 +52,20 @@
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+        </div>  
     </div>
     <div class="main_content">
-        <div class="header">
+        <div class="header" id="time" >
             place for time and wheter?
         </div>
         <div class="info">
             <div id="article-container">
 
             </div>
-
-
-            <script th:src="getUserName.js" type="text/javascript"></script>
-            <script th:src="getAllArticle.js" type="text/javascript"></script>
-
         </div>
     </div>
 </div>
-
+<script th:src="getUserName.js" type="text/javascript"></script>
+<script th:src="getAllArticle.js" type="text/javascript"></script>
 </body>
 </html>
