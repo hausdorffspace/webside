@@ -14,5 +14,8 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     //SET nativQuery = true because jpql doesn't know what is "_"
     @Query(value = "SELECT * FROM comment AS c WHERE c.article_id=:articleId" , nativeQuery = true)
     List<Comment> getAllCommentByArticleId(@Param("articleId") Long articleId);
+
+    @Query(value = "SELECT * FROM comment AS c", nativeQuery = true)
+    List<Comment> getAllComents();
 }
 

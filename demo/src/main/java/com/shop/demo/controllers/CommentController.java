@@ -4,10 +4,7 @@ import com.shop.demo.model.Comment;
 import com.shop.demo.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,8 +25,18 @@ public class CommentController {
     }
 
     //TODO
-    @GetMapping(value = "/getAllComments/{id}")
-    public List<Comment> getCommentsByArticleId(@PathVariable(name = "id") Long id) {
-        return commentService.getAllComment(id);
+    @GetMapping(value = "/getAllCommentsById/{id}")
+    public @ResponseBody List<Comment> getCommentsByArticleId(@PathVariable(name = "id") Long id) {
+        return commentService.getAllCommentByArticleId(id);
+    }
+
+    /*@RequestMapping(value = "/getAllComments", method = RequestMethod.GET)
+    public List<Comment> getCommentByArticleId(@RequestParam("id") Long id){
+        return commentService.getAllCommentByArticleId(id);
+    }*/
+
+    @GetMapping(value = "/getAllComments")
+    public @ResponseBody List<Comment> getAllComments(){
+        return commentService.getAllComennts();
     }
 }

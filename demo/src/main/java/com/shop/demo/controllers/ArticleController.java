@@ -34,14 +34,14 @@ public class ArticleController {
                              @RequestParam(name = "content") String content,
                              @RequestParam(name = "relase") String relase
     ) {
-        articleService.saveArticle(content,title,relase);
+        articleService.saveArticle(content, title, relase);
         return "index";
     }
 
     @GetMapping(value = "/viewArticle")
     public @ResponseBody
     BoxForArticle returnListOfAllArticle() {
-        return new BoxForArticle(articleService.returnAllArticle(), "to jest przyklad");
+        return new BoxForArticle(articleService.returnAllArticle(), commentService.getAllComennts());
     }
 
     @PostMapping(value = "/viewArticle")

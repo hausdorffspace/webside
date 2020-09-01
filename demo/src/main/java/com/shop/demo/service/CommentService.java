@@ -33,7 +33,11 @@ public class CommentService {
         commentRepository.save(comment);
     }
 
-    public List<Comment> getAllComment(Long id){
+    public List<Comment> getAllCommentByArticleId(Long id){
         return commentRepository.getAllCommentByArticleId(id);
+    }
+
+    public List<Comment> getAllComennts(){
+        return commentRepository.getAllComents();
     }
 }
