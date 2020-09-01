@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
-    <link rel="stylesheet" th:href="login.css" type="text/css"/>
-    <!--href="login.css" to dla springa, "/static/login.css" to dla bracket -->
-</head>
-<body>
-<div class="container">
-    Eugenika (stgr. εὐγενής, eugenes, ’dobrze urodzony’) – pojęcie wprowadzone w 1869 przez Francisa Galtona[1],
-    kuzyna Karola Darwina, które dotyczyło selektywnego rozmnażania zwierząt oraz ludzi, aby ulepszać gatunki z
-    pokolenia na pokolenie, szczególnie jeśli chodzi o cechy dziedziczone. W ciągu następnych lat Galton poprawił
-    swoją definicję, aby uwzględnić specyfikę eugeniki pozytywnej, zachęcającej do częstszego reprodukowania się
-    najlepszych
-    osobników oraz eugeniki negatywnej, zniechęcającej do reprodukcji osobników mniej wartościowych[2][3].
 
-    Współcześnie jest to system poglądów zakładający możliwość doskonalenia cech dziedzicznych
-</div>
+    <link rel="stylesheet" th:href="login.css" type="text/css"/>
+    <!--th:href="login.css" to dla springa, "/static/login.css" to dla bracket bez templates TH: -->
+</head>
+
+
+<body>
+
+
+<canvas id="playground">
+
+</canvas>
 
 <div class="box">
     <form th:action="@{/login-process}" method="post">
@@ -43,13 +41,15 @@
 
     <form th:action="@{/adduser}" method="post">
         <button class="button" style="vertical-align:middle" value="registred">
-        <span>
-            registred
-        </span>
+            <span>
+                registred
+            </span>
         </button>
     </form>
 </div>
 
 
+<!--     th:src="backroundTest.js"      for intellij-->
+<script th:src="backgroundTest.js" type="text/javascript"></script>
 </body>
 </html>
