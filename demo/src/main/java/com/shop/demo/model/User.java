@@ -40,14 +40,6 @@ public class User implements Serializable {
 
     private Boolean enabled;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private List<Article> articleList;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private List<Comment> commentList;
-
     @ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_Role",

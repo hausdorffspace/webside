@@ -1,12 +1,14 @@
 package com.shop.demo.service;
 
 import com.shop.demo.model.Comment;
+import com.shop.demo.model.response.CommentResponse;
 import com.shop.demo.repository.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CommentService {
@@ -37,7 +39,14 @@ public class CommentService {
         return commentRepository.getAllCommentByArticleId(id);
     }
 
-    public List<Comment> getAllComennts(){
-        return commentRepository.getAllComents();
+    public List<CommentResponse> getAllComments(){
+        return commentRepository.findAll().stream()
+                .map(comment -> CommentResponse.builder()
+                        .content(comment.getContent())
+                        .userName(comment.getUser().getName())
+                        .articleId(comment.getArticle().getId())
+                        .id(comment.getId())
+                        .build()
+                ).collect(Collectors.toList());
     }
 }

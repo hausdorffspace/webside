@@ -34,9 +34,9 @@ public class CommentController {
     public List<Comment> getCommentByArticleId(@RequestParam("id") Long id){
         return commentService.getAllCommentByArticleId(id);
     }*/
-
+/*
     @GetMapping(value = "/getAllComments")
     public @ResponseBody List<Comment> getAllComments(){
-        return commentService.getAllComennts();
-    }
+        return commentService.getAllComments();
+    }*/
 }

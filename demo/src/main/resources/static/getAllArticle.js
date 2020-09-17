@@ -16,10 +16,10 @@ function addDiv(articleListlenght,commentListLenght ,data) {
 
         var divName = document.createElement('div');
         divName.setAttribute('class', 'div-name');
-        if (data.articleList[i].name == null) {
+        if (data.articleList[i].userName == null) {
             divName.appendChild(document.createTextNode('Annonymous'));
         } else {
-            divName.appendChild(document.createTextNode(data.articleList[i].name));
+            divName.appendChild(document.createTextNode(data.articleList[i].userName));
         }
 
 
@@ -65,7 +65,7 @@ function addDiv(articleListlenght,commentListLenght ,data) {
 
         //tworzenie komentarzy
         for (var j = 0; j<commentListLenght;j++){
-            if (data.articleList[i].id==data.commentList[j].article.id){ //gets all comments tha only belong to the article
+            if (data.articleList[i].id==data.commentList[j].articleId){ //gets all comments tha only belong to the article
                 var comment = document.createElement('div');
                 comment.setAttribute('class', 'comment');
 
@@ -75,7 +75,7 @@ function addDiv(articleListlenght,commentListLenght ,data) {
                 var userNameDiv = document.createElement('div');
                 userNameDiv.setAttribute('class','user-name');
 
-                userNameDiv.appendChild(document.createTextNode(data.commentList[j].user.name + " napisał:"));
+                userNameDiv.appendChild(document.createTextNode(data.commentList[j].userName + " napisał:"));
                 divCommentContent.appendChild(document.createTextNode(data.commentList[j].content));
 
                 comment.appendChild(userNameDiv);

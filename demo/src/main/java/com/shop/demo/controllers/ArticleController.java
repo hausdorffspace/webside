@@ -46,17 +46,17 @@ public class ArticleController {
         return "index";
     }*/
 
+    //TODO
     @GetMapping(value = "/viewArticle")
     public @ResponseBody
     BoxForArticle returnListOfAllArticle() {
-        return new BoxForArticle(articleService.returnAllArticle(), commentService.getAllComennts());
+        return new BoxForArticle(articleService.returnAllArticle(), commentService.getAllComments());
     }
 
     @PostMapping(value = "/viewArticle")
     public String viewArticle() {
         return "viewArticle";
     }
-
 
     //getAllArticleByTitle
     @ResponseBody
@@ -65,4 +65,10 @@ public class ArticleController {
         return articleService.returnAllArticleByTitle("test");
     }
 
+
+    @ResponseBody
+    @GetMapping(value = "/articlesREST")
+    public List<Article> getA(){
+        return articleService.getArticles();
+    }
 }

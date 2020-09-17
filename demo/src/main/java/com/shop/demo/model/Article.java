@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Builder
 @Entity(name = "ARTICLE")
@@ -38,13 +37,5 @@ public class Article implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER,
-            mappedBy = "article"
-    )
-    /*@JoinColumn(name = "article_id",
-            referencedColumnName = "article_id")*/
-    @JsonIgnore
-    private List<Comment> comments;
 }
 
