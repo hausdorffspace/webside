@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -28,21 +29,16 @@ public class ArticleService {
         this.userService = userService;
     }
 
-    public void saveArticle(String content, String title, String relase){
-        try {
-
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-M-yyyy");
-            Date date = simpleDateFormat.parse(relase);
-            articleRepository.save(Article.builder()
-                    .title(title)
-                    .content(content)
-                    .date(date)
-                    .user(userService.getUserByLogin(SecurityContextHolder.getContext().getAuthentication().getName()))
-                    .build()
-            );
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+    public void saveArticle(String content, String title){
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        articleRepository.save(Article.builder()
+                .title(title)
+                .content(content)
+                .date(formatter.format(date))
+                .user(userService.getUserByLogin(SecurityContextHolder.getContext().getAuthentication().getName()))
+                .build()
+        );
     }
 
     public List<Article> returnAllArticle(){
@@ -56,4 +52,16 @@ public class ArticleService {
     public Article getArticleById(Long id) {
         return articleRepository.getArticleById(id);
     }
+
+
+
+    //////////////////////////////
+    ///Methods for REST //////////
+    //////////////////////////////
+
+
+    public void addArticle(Article article){
+        articleRepository.save(article);
+    }
+
 }

@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @Builder
@@ -20,7 +19,8 @@ public class Article implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "article_id")
+    @
+            Column(name = "article_id")
     private Long id;
 
     private String title;
@@ -28,9 +28,9 @@ public class Article implements Serializable {
     @Column(length = 1000)
     private String content;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
+
     @Column(name = "relase_date")
-    private Date date;
+    private String date;
 
 
     @ManyToOne(cascade = CascadeType.PERSIST,
@@ -47,3 +47,4 @@ public class Article implements Serializable {
     @JsonIgnore
     private List<Comment> comments;
 }
+

@@ -49,5 +49,14 @@ public class UsersController {
         return "login";
     }
 
+    @PostMapping(value = "/userSetting")
+    public String getUserSettingView(){
+        return "userSetting";
+    }
+
+    //todo update user, password, login, photo
+
+
+
 
 }

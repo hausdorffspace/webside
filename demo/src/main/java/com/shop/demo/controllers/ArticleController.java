@@ -1,7 +1,6 @@
 package com.shop.demo.controllers;
 
 import com.shop.demo.model.Article;
-import com.shop.demo.model.Comment;
 import com.shop.demo.service.ArticleService;
 import com.shop.demo.model.dto.BoxForArticle;
 import com.shop.demo.service.CommentService;
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+
 
 @Controller
 public class ArticleController {
@@ -29,14 +29,22 @@ public class ArticleController {
         return "addArticle";
     }
 
-    @PostMapping("/addArticle")
-    public String addArticle(@RequestParam(name = "title") String title,
-                             @RequestParam(name = "content") String content,
-                             @RequestParam(name = "relase") String relase
+    @PostMapping("/addArticle") // /addArticle?title=dupa&content=request size is limited to 2kb in most browsers
+    public String addArticle(
+            @RequestParam(name = "content") String content,
+            @RequestParam(name = "title") String title
     ) {
-        articleService.saveArticle(content, title, relase);
+        articleService.saveArticle(content, title);
         return "index";
     }
+
+    /*@PostMapping("/addArticle") // /addArticle?title=dupa&content=request size is limited to 2kb in most browsers
+    public String addArticle(
+            @RequestBody Article article
+    ) {
+        articleService.saveArticle(content, title);
+        return "index";
+    }*/
 
     @GetMapping(value = "/viewArticle")
     public @ResponseBody
@@ -49,9 +57,11 @@ public class ArticleController {
         return "viewArticle";
     }
 
-    @GetMapping(value = "/allArticleByTitle")
-    public @ResponseBody
-    List<Article> getAllArticleByTitle() {
+
+    //getAllArticleByTitle
+    @ResponseBody
+    @GetMapping(value = "/articles")
+    public List<Article> getAllArticleByTitle() {
         return articleService.returnAllArticleByTitle("test");
     }
 

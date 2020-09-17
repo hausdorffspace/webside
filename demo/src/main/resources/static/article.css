@@ -12,20 +12,14 @@
     transition: 1s;
 }
 
-.div-article:hover{
-    font-weight: bold;
-}
-
 .div-name {
     height: 20px;
-    width: 100px;
-    background-color: #2ecc71;
+    width: 150px;
 }
 
 .div-data {
-    width: 100px;
+    width: 250px;
     height: 20px;
-    background-color: brown;
 }
 
 .div-title {
@@ -43,10 +37,29 @@
 
 textarea{
     width: 80px;
-    height: 70px;
+    height: 80%;
+    resize: none;
     transition: 0.5s;
 }
 
 textarea:hover{
     height: 100px;
 }
+
+.div-Container-for-comments{
+}
+
+.comment{
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.div-Comment-Content{
+}
+
+.user-name{
+    color: #191919;
+ }

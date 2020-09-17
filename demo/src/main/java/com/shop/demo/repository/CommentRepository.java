@@ -18,4 +18,3 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
     @Query(value = "SELECT * FROM comment AS c", nativeQuery = true)
     List<Comment> getAllComents();
 }
-

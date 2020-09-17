@@ -1,8 +1,7 @@
 fetch('http://localhost:8080/viewArticle', {method: 'GET'})
     .then(res => res.json())
     .then(article => {
-        console.log(article.articleList[2].relase);
-        console.log(article.articleList[1].relase);
+        console.log(article.articleList);
         var articleListLenght = Object.keys(article.articleList).length;
         var commentListLenght = Object.keys(article.commentList).length;
         addDiv(articleListLenght,commentListLenght, article);
@@ -27,10 +26,10 @@ function addDiv(articleListlenght,commentListLenght ,data) {
         //TODO date ?????????? if(true)????
         var divData = document.createElement('div');
         divData.setAttribute('class', 'div-data');
-        if (true) {
+        if (data.articleList[i].date == null) {
             divData.appendChild(document.createTextNode("18 maj"));
         } else {
-            divData.appendChild(document.createTextNode(data.articleList[i].relase));
+            divData.appendChild(document.createTextNode(data.articleList[i].date));
         }
 
         var divContent = document.createElement('div');
@@ -64,12 +63,25 @@ function addDiv(articleListlenght,commentListLenght ,data) {
         var divContainerForComments = document.createElement('div');
         divContainerForComments.setAttribute('class', 'div-container-for-comments');
 
+        //tworzenie komentarzy
         for (var j = 0; j<commentListLenght;j++){
-            if (data.articleList[i].id==data.commentList[j].article.id){
+            if (data.articleList[i].id==data.commentList[j].article.id){ //gets all comments tha only belong to the article
+                var comment = document.createElement('div');
+                comment.setAttribute('class', 'comment');
+
                 var divCommentContent = document.createElement('div');
                 divCommentContent.setAttribute('class','div-Comment-Content');
+
+                var userNameDiv = document.createElement('div');
+                userNameDiv.setAttribute('class','user-name');
+
+                userNameDiv.appendChild(document.createTextNode(data.commentList[j].user.name + " napisał:"));
                 divCommentContent.appendChild(document.createTextNode(data.commentList[j].content));
-                divContainerForComments.appendChild(divCommentContent)
+
+                comment.appendChild(userNameDiv);
+                comment.appendChild(divCommentContent);
+
+                divContainerForComments.appendChild(comment);
             }
         }
 
@@ -86,16 +98,5 @@ function addDiv(articleListlenght,commentListLenght ,data) {
 
         div.appendChild(articleElement);
     }
-}
-
-//TODO
-function createComment() {
-
-}
-
-
-//TODO
-function displayAllComment() {
-
 }
 

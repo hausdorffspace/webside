@@ -1,33 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>addArticle</title>
-    <link th:href="addArticle.css" rel="stylesheet" type="text/css">
+    <title>test</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/index.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{addArticle.css}">
 </head>
+
 <body>
-<div class="box">
-    <form action="/addArticle" method="post">
-        <input type="text"
-               id="title"
-               placeholder="podaj tytul"
-               th:required="required"
-               name="title">
 
-        <input type="text"
-               id="content"
-               placeholder="podaj tresc"
-               th:required="required"
-               name="content">
+<div class="wrapper">
+    <div class="sidebar">
+        <div id="photo_holder">
+            <div id="username">
 
-        <input type="date"
-               id="relase"
-               th:required="required"
-               name="relase">
-        
+            </div>
+            this is a place for user photo
+        </div>
+        <ul>
+            <li>
+                <form action="/logout" method="post">
+                    <input type="submit" value="Log me out">
+                </form>
+            </li>
+            <!--<li>
+                <a th:href="@{/logout}">Logout</a>
+            </li>-->
+            <li>
+                <form action="/viewArticle" method="post">
+                    <button> view</button>
+                </form>
+            </li>
+            <li>
+                <form action="/getIndex">
+                    <button>home</button>
+                </form>
+            </li>
+            <li>
+                <form action="/chat" method="get">
+                    <button value="chat">chat</button>
+                </form>
+            </li>
+            <li>
+                <form action="/userSetting" method="post">
+                    <button value="user Setting">user setting</button>
+                </form>
+            </li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="header">
+            Welcome!! Have a nice day.
 
-        <input type="submit" value="submit">
-    </form>
+        </div>
+        <div class="info">
+            <form action="/addArticle" method="post">
+                <textarea th:required="required" class="title" name="title" placeholder="podaj tytul">
+                </textarea>
+                <textarea name="content" th:required="required" placeholder="tresc">
+                </textarea>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+    </div>
 </div>
+<script th:src="getUserName.js" type="text/javascript"></script>
 </body>
 </html>

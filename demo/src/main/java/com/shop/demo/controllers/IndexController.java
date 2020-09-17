@@ -27,7 +27,7 @@ public class IndexController {
         return User.builder().name(principal.getName()).build();
     }
 
-    @GetMapping("getIndex")
+    @GetMapping("/getIndex")
     public String getIndex(){
         return "index";
     }
