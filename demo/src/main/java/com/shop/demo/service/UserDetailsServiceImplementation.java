@@ -26,7 +26,7 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-    //make user.login unique because of exception (two the same login)
+
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {

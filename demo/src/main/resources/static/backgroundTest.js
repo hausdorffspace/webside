@@ -38,7 +38,7 @@ var limitersHeight = function () {
 
 var colapse = function (){
     particles.forEach(function (p){
-        p.radius *= 0.99;
+        p.radius *= 0.98;
     })
 }
 
@@ -90,8 +90,8 @@ var displaycordinates = function (){
 
 var loop = function () {
     create();
-    draw();/*
-    colapse();*/
+    draw();
+    colapse();
     move();
     displaycordinates();
     window.requestAnimationFrame(loop);

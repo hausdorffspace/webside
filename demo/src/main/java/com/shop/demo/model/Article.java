@@ -18,13 +18,12 @@ public class Article implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @
-            Column(name = "article_id")
+    @Column(name = "article_id")
     private Long id;
 
     private String title;
 
-    @Column(length = 1000)
+    @Column(length = 10000)
     private String content;
 
 

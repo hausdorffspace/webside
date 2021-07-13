@@ -68,7 +68,7 @@ public class ArticleController {
 
     @ResponseBody
     @GetMapping(value = "/articlesREST")
-    public List<Article> getA(){
+    public List<Article> getA() {
         return articleService.getArticles();
     }
 }

@@ -21,7 +21,6 @@ public class IndexController {
         return "login";
     }
 
-    //Opakowanie na userName
     @GetMapping("/getUserName")
     public @ResponseBody User getUserName(Principal principal){
         return User.builder().name(principal.getName()).build();
@@ -30,6 +29,12 @@ public class IndexController {
     @GetMapping("/getIndex")
     public String getIndex(){
         return "index";
+    }
+
+    @GetMapping("/test")
+    @ResponseBody
+    public String test(){
+        return "test";
     }
 
 }
